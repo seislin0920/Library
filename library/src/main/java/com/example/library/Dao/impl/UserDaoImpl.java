@@ -17,6 +17,7 @@ import com.example.library.Model.User;
 public class UserDaoImpl implements UserDao {
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    
     @Override
     public Integer createUser(User user) {
         String sql = "INSERT INTO user(id, phone, password, userName, regist_time, exit_time) " +
@@ -38,5 +39,18 @@ public class UserDaoImpl implements UserDao {
         int userId = keyHolder.getKey().intValue();
 
         return userId;        
+    }
+
+    @Override
+    public Boolean loginUser(User user) {
+        String sql = "SELECT COUNT(*) FROM user WHERE phone = :phone AND password = :password";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("phone", user.getPhone());
+        map.put("password", user.getPassword());
+    
+        Integer count = namedParameterJdbcTemplate.queryForObject(sql, map, Integer.class);
+    
+        return count != null && count > 0;     
     }
 }

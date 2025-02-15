@@ -11,25 +11,21 @@ const {booklist} = storeToRefs(useGetBook());
 <template>
     <body class="homepage is-preload">
         <div class="container text-center py-5">
-            <div class="row justify-content-center">
+            <div class="row d-flex justify-content-center">
                 <hr />
-                <p class="fs-2">書籍</p>
-                <div class="col"  v-for="(book, bookId) in booklist" :key="bookId">
-                    <button class="btn btn-secondary btn-lg" style="width: 60%; height: 100%;">
-                        <p class="fs-5">{{ book.title }}</p>
-                    </button>
-                    <div class="py-1" style="height: 50%;">
-                        <p class="fs-6 ">作者:{{ book.author }}</p>
-                        <p class="fs-6">摘要:{{ book.introductionl }}</p>
-                        <p class="fs-6t">ISBN:{{ book.isbn }}</p>
-                        <p class="fs-6">作者:{{ book.author }}</p>
-                    </div>
-                    <button class="btn btn-secondary btn-lg" style="width: 90px; height: 40px; margin-bottom: 3%;">
-                        <p v-if="book.status == 0" class="fs-6">可借閱</p>
-                        <p v-if="book.status !== 0" class="fs-6">出借中</p>
-                    </button>
+                <p class="fs-2">Login</p>
+                <!-- registration-->
+                <div class="col">
+                    <input type="text" id="username" placeholder="手機號碼(ex:09...)">
+                </div>
+                <div class="col">
+                    <input type="password" id="password" placeholder="Password">
                 </div>
             </div>
+            <button class="my-3" style="width: 50%;">Login</button>
+            <p>Already have an account? 
+                <RouterLink to="/signup">Singup here</RouterLink>
+            </p>
         </div>
     </body>
 </template>

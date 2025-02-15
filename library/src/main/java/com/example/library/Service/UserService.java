@@ -4,4 +4,5 @@ import com.example.library.Model.User;
 
 public interface UserService {
      Integer createUser(User user);
+     Boolean loginUser(User user);
 }

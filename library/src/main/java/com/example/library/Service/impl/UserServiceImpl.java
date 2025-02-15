@@ -15,4 +15,9 @@ public class UserServiceImpl implements UserService{
     public Integer createUser(User user) {
         return userDao.createUser(user);
     }
+    @Override
+    public Boolean loginUser(User user) {
+        return userDao.loginUser(user);
+    }
+
 }

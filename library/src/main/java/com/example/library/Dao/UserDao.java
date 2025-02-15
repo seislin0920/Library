@@ -7,4 +7,5 @@ import com.example.library.Model.User;
 @Component
 public interface UserDao {
     Integer createUser(User user);
+    Boolean loginUser(User user);
 }

@@ -22,4 +22,13 @@ public class UserController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body("帳戶已建立"+userId);
     }
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestBody User user){
+        Boolean loginStatus = userService.loginUser(user);
+        if (loginStatus) {
+            return ResponseEntity.status(HttpStatus.CREATED).body("success");
+        } else {
+            return ResponseEntity.status(HttpStatus.CREATED).body("fail");
+        }
+    }
 }
