@@ -1,11 +1,10 @@
 <script setup>
-import { useGetBook } from '@/stores/getBook.js';
+import { useLogin } from '@/stores/login.js';
 import { storeToRefs } from 'pinia';
 
-const {getbook} = useGetBook();
-getbook();
+const {Login} = useLogin();
 
-const {booklist} = storeToRefs(useGetBook());
+const {LoginPhone, LoginPassword,} = storeToRefs(useLogin());
 </script>
 
 <template>
@@ -16,13 +15,15 @@ const {booklist} = storeToRefs(useGetBook());
                 <p class="fs-2">Login</p>
                 <!-- registration-->
                 <div class="col">
-                    <input type="text" id="username" placeholder="手機號碼(ex:09...)">
+                    <input type="text" id="username" placeholder="手機號碼(ex:09...)"
+                    v-model="LoginPhone">
                 </div>
                 <div class="col">
-                    <input type="password" id="password" placeholder="Password">
+                    <input type="password" id="password" placeholder="Password"
+                    v-model="LoginPassword">
                 </div>
             </div>
-            <button class="my-3" style="width: 50%;">Login</button>
+            <button class="my-3" style="width: 50%;" @click="Login(LoginPhone, LoginPassword)">Login</button>
             <p>Already have an account? 
                 <RouterLink to="/signup">Singup here</RouterLink>
             </p>

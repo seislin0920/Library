@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia';
 
 const {Signup} = useSignup();
 
-const {phone, userName, password,} = storeToRefs(useSignup());
+const {SignupPhone, SignupUserName, SignupPassword} = storeToRefs(useSignup());
 </script>
 
 <template>
@@ -16,18 +16,18 @@ const {phone, userName, password,} = storeToRefs(useSignup());
                 <!-- registration-->
                 <div class="col">
                     <input type="text" id="phone" placeholder="手機號碼(ex:09...)" 
-                    v-model="phone">
+                    v-model="SignupPhone">
                 </div>
                 <div class="col">
                     <input type="text" id="username" placeholder="使用者名稱"
-                    v-model="userName">
+                    v-model="SignupUserName">
                 </div>
                 <div class="col">
                     <input type="password" id="password" placeholder="Password"
-                    v-model="password">
+                    v-model="SignupPassword">
                 </div>
             </div>
-            <button class="my-3" style="width: 50%;" @click="Signup(phone,userName,password)">Register</button>
+            <button class="my-3" style="width: 50%;" @click="Signup(SignupPhone,SignupUserName,SignupPassword)">Register</button>
             <p>Already have an account? 
                 <RouterLink to="/login">Login here</RouterLink>
             </p>

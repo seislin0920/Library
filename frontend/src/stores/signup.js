@@ -3,9 +3,9 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useSignup = defineStore("SignupStore", () => {
-    let phone = ref(null);
-    let userName = ref(null);
-    let password = ref(null);
+    let SignupPhone = ref(null);
+    let SignupUserName = ref(null);
+    let SignupPassword = ref(null);
     const Signup = async (InPhone, InPassword, inUserName) => {
         try {
              await axios
@@ -21,9 +21,9 @@ export const useSignup = defineStore("SignupStore", () => {
     };
 
     return {
-        phone,
-        userName,
-        password,
+        SignupPhone,
+        SignupUserName,
+        SignupPassword,
         Signup
     };
 });
