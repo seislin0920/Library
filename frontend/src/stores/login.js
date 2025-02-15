@@ -13,10 +13,6 @@ export const useLogin = defineStore("LoginStore", () => {
                       password: InPassword,
                  })
                   .then((response) => {
-                    console.log( {
-                        phone: InPhone,     
-                        password: InPassword,
-                   });
                       console.log(response.data);
                   });
         } catch (err) {}

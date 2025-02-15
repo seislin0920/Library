@@ -6,13 +6,13 @@ export const useSignup = defineStore("SignupStore", () => {
     let SignupPhone = ref(null);
     let SignupUserName = ref(null);
     let SignupPassword = ref(null);
-    const Signup = async (InPhone, InPassword, inUserName) => {
+    const Signup = async (InPhone, inUserName, InPassword) => {
         try {
              await axios
                   .post("http://localhost:8080/user", {
-                      phone: InPhone,     
-                      password: InPassword,
-                      userName: inUserName
+                      phone: InPhone, 
+                      userName: inUserName,    
+                      password: InPassword
                  })
                   .then((response) => {
                       console.log(response.data);

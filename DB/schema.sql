@@ -6,7 +6,7 @@ CREATE TABLE user
 (
     id                  INT          NOT NULL PRIMARY KEY AUTO_INCREMENT,
     phone               VARCHAR(10)  NOT NULL UNIQUE,
-    password       TEXT        NOT NULL,
+    password            VARCHAR(255) NOT NULL,
     userName            VARCHAR(32)  NOT NULL,
     regist_time      TIMESTAMP    NOT NULL,
     exit_time         TIMESTAMP     NULL
